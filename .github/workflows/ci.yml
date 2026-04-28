@@ -1,0 +1,31 @@
+name: ROS 2 CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    strategy:
+      fail-fast: false
+      matrix:
+        ros_distribution:
+          - jazzy
+          - rolling
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up ROS
+        uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: ${{ matrix.ros_distribution }}
+
+      - name: Build and test
+        uses: ros-tooling/action-ros-ci@v0.4
+        with:
+          package-name: ros2_cpp_teleop_safety_node
+          target-ros2-distro: ${{ matrix.ros_distribution }}
