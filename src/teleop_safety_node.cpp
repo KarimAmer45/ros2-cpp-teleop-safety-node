@@ -1,3 +1,23 @@
+// Copyright 2026 Karim Amer
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+// THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+
 #include "ros2_cpp_teleop_safety_node/teleop_safety_node.hpp"
 
 #include <algorithm>
@@ -66,12 +86,14 @@ void TeleopSafetyNode::loadParameters()
     declare_parameter<std::string>("speed_limit_topic", params_.speed_limit_topic);
   params_.command_timeout = declare_parameter<double>("command_timeout", params_.command_timeout);
   params_.timer_period = declare_parameter<double>("timer_period", params_.timer_period);
-  params_.max_linear_speed = declare_parameter<double>("max_linear_speed", params_.max_linear_speed);
+  params_.max_linear_speed =
+    declare_parameter<double>("max_linear_speed", params_.max_linear_speed);
   params_.max_lateral_speed =
     declare_parameter<double>("max_lateral_speed", params_.max_lateral_speed);
   params_.max_angular_speed =
     declare_parameter<double>("max_angular_speed", params_.max_angular_speed);
-  params_.max_linear_accel = declare_parameter<double>("max_linear_accel", params_.max_linear_accel);
+  params_.max_linear_accel =
+    declare_parameter<double>("max_linear_accel", params_.max_linear_accel);
   params_.max_angular_accel =
     declare_parameter<double>("max_angular_accel", params_.max_angular_accel);
   params_.allow_lateral_motion =
@@ -82,7 +104,9 @@ void TeleopSafetyNode::loadParameters()
     declare_parameter<bool>("obstacle_stop_enabled", params_.obstacle_stop_enabled);
   params_.min_obstacle_distance =
     declare_parameter<double>("min_obstacle_distance", params_.min_obstacle_distance);
-  params_.front_arc_degrees = declare_parameter<double>("front_arc_degrees", params_.front_arc_degrees);
+  params_.front_arc_degrees = declare_parameter<double>(
+    "front_arc_degrees",
+    params_.front_arc_degrees);
 
   params_.command_timeout = std::max(0.0, params_.command_timeout);
   params_.timer_period = std::max(0.01, params_.timer_period);
