@@ -107,21 +107,21 @@ The demo starts a tiny differential-drive robot in a simple world and bridges th
 
 This project is a software guardrail for development and demos. Real robots still need hardware-level emergency stops, controller-level limits, watchdogs, and platform-specific safety validation.
 
-## Example output
+## Safety-state output
 
 ![ros2-cpp-teleop-safety-node result screenshot](docs/results/result-screenshot.png)
 
 Safety-filter command flow for watchdog, emergency-stop, and speed-limit behavior.
 
 
-## Safety design notes
+## Command-gating notes
 
 - A C++ ROS 2 safety wrapper for teleoperation velocity commands.
 - Runtime safety states for command limiting, stale input, and emergency stop.
 - Configurable topics and parameters suitable for integration into a ROS workspace.
 
 
-## Validation and next steps
+## Robot validation plan
 
 - The node is a software safety demo and not a certified safety controller.
 - Full validation requires a ROS 2 runtime and robot/simulator integration tests.
