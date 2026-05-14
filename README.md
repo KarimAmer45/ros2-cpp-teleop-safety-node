@@ -4,6 +4,12 @@ A ROS 2 C++ teleoperation safety node that sits between a raw velocity source an
 
 It subscribes to a raw `geometry_msgs/msg/Twist`, applies safety limits, and publishes a guarded `Twist` for the base controller. The node is intentionally small, dependency-light, and written in C++ with `rclcpp`.
 
+## Demo Preview
+
+![ROS2 C++ teleop safety node preview](docs/demo.gif)
+
+Preview animation of the safety filter: raw teleop input, velocity clamps, speed scaling, obstacle stop, e-stop, watchdog timeout, and guarded `/cmd_vel` output.
+
 ## Features
 
 - C++17 `rclcpp` node with an installable `ament_cmake` package.
