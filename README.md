@@ -109,7 +109,7 @@ This project is a software guardrail for development and demos. Real robots stil
 
 ---
 
-## Benchmarks (Live — May 2026)
+## Benchmarks
 
 The safety-filter core (velocity clamp + acceleration limit + e-stop gate) was benchmarked in isolation with a C++17 micro-benchmark compiled at `-O2`, simulating the `cmd_vel_raw` callback loop with 5% randomised obstacle-stop triggers.
 
@@ -157,4 +157,3 @@ CPP
 g++ -std=c++17 -O2 -o /tmp/safety_bench /tmp/safety_bench.cpp && /tmp/safety_bench
 ```
 
-**CV bullet (Google XYZ):** Accomplished deterministic velocity and acceleration safety enforcement at <41 ns per callback (24 M+ calls/sec) as measured by a 10 M-iteration C++17 micro-benchmark, by implementing a C++ `rclcpp` safety node with five independent guard layers (velocity clamp, acceleration limit, 350 ms deadman timeout, e-stop topic, LaserScan obstacle stop) for a ROS 2 differential-drive teleop pipeline.
