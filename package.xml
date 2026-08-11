@@ -4,7 +4,7 @@
   <name>ros2_cpp_teleop_safety_node</name>
   <version>0.1.0</version>
   <description>C++ ROS 2 teleoperation safety node with velocity limiting, watchdog timeout, e-stop, speed scaling, and optional LaserScan obstacle stop.</description>
-  <maintainer email="karim@example.com">Karim</maintainer>
+  <maintainer email="karimamer456@gmail.com">Karim</maintainer>
   <license>MIT</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
