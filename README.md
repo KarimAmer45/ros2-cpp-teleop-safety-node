@@ -1,5 +1,7 @@
 # ros2-cpp-teleop-safety-node
 
+[![ROS 2 CI](https://github.com/KarimAmer45/ros2-cpp-teleop-safety-node/actions/workflows/ci.yml/badge.svg)](https://github.com/KarimAmer45/ros2-cpp-teleop-safety-node/actions/workflows/ci.yml)
+
 A ROS 2 C++ teleoperation safety node that sits between a raw velocity source and a robot base.
 
 It subscribes to a raw `geometry_msgs/msg/Twist`, applies safety limits, and publishes a guarded `Twist` for the base controller. The node is intentionally small, dependency-light, and written in C++ with `rclcpp`.
