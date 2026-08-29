@@ -1,3 +1,9 @@
+// Copyright 2026 Karim Amer
+//
+// Use of this source code is governed by an MIT-style
+// license that can be found in the LICENSE file or at
+// https://opensource.org/licenses/MIT.
+
 #include "ros2_cpp_teleop_safety_node/teleop_safety_node.hpp"
 
 #include <algorithm>
@@ -66,12 +72,14 @@ void TeleopSafetyNode::loadParameters()
     declare_parameter<std::string>("speed_limit_topic", params_.speed_limit_topic);
   params_.command_timeout = declare_parameter<double>("command_timeout", params_.command_timeout);
   params_.timer_period = declare_parameter<double>("timer_period", params_.timer_period);
-  params_.max_linear_speed = declare_parameter<double>("max_linear_speed", params_.max_linear_speed);
+  params_.max_linear_speed =
+    declare_parameter<double>("max_linear_speed", params_.max_linear_speed);
   params_.max_lateral_speed =
     declare_parameter<double>("max_lateral_speed", params_.max_lateral_speed);
   params_.max_angular_speed =
     declare_parameter<double>("max_angular_speed", params_.max_angular_speed);
-  params_.max_linear_accel = declare_parameter<double>("max_linear_accel", params_.max_linear_accel);
+  params_.max_linear_accel =
+    declare_parameter<double>("max_linear_accel", params_.max_linear_accel);
   params_.max_angular_accel =
     declare_parameter<double>("max_angular_accel", params_.max_angular_accel);
   params_.allow_lateral_motion =
@@ -82,7 +90,9 @@ void TeleopSafetyNode::loadParameters()
     declare_parameter<bool>("obstacle_stop_enabled", params_.obstacle_stop_enabled);
   params_.min_obstacle_distance =
     declare_parameter<double>("min_obstacle_distance", params_.min_obstacle_distance);
-  params_.front_arc_degrees = declare_parameter<double>("front_arc_degrees", params_.front_arc_degrees);
+  params_.front_arc_degrees = declare_parameter<double>(
+    "front_arc_degrees",
+    params_.front_arc_degrees);
 
   params_.command_timeout = std::max(0.0, params_.command_timeout);
   params_.timer_period = std::max(0.01, params_.timer_period);

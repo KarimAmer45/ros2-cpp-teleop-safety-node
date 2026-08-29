@@ -1,4 +1,10 @@
-cmake_minimum_required(VERSION 3.8)
+# Copyright 2026 Karim Amer
+#
+# Use of this source code is governed by an MIT-style
+# license that can be found in the LICENSE file or at
+# https://opensource.org/licenses/MIT.
+
+cmake_minimum_required(VERSION 3.14.4)
 project(ros2_cpp_teleop_safety_node)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -20,11 +26,11 @@ target_include_directories(teleop_safety_node_lib
     $<INSTALL_INTERFACE:include>
 )
 target_compile_features(teleop_safety_node_lib PUBLIC cxx_std_17)
-ament_target_dependencies(teleop_safety_node_lib
-  geometry_msgs
-  rclcpp
-  sensor_msgs
-  std_msgs
+target_link_libraries(teleop_safety_node_lib PUBLIC
+  rclcpp::rclcpp
+  ${geometry_msgs_TARGETS}
+  ${sensor_msgs_TARGETS}
+  ${std_msgs_TARGETS}
 )
 
 add_executable(teleop_safety_node

@@ -33,3 +33,4 @@ jobs:
         with:
           package-name: ros2_cpp_teleop_safety_node
           target-ros2-distro: ${{ matrix.ros_distribution }}
+          coverage-result: false
