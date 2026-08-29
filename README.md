@@ -107,9 +107,11 @@ The demo starts a tiny differential-drive robot in a simple world and bridges th
 
 The active [`ROS 2 CI`](.github/workflows/ci.yml) workflow runs for every pull request and every push to `main`. It builds the package on Ubuntu 24.04 against both ROS 2 Jazzy and Rolling through `ros-tooling/action-ros-ci`.
 
-Run the matching package-level checks in a sourced ROS 2 workspace:
+From the workspace root, source the target ROS 2 distribution before running the
+same package-level build and test sequence locally:
 
 ```bash
+source /opt/ros/${ROS_DISTRO}/setup.bash
 colcon build --packages-select ros2_cpp_teleop_safety_node
 colcon test --packages-select ros2_cpp_teleop_safety_node
 colcon test-result --verbose
