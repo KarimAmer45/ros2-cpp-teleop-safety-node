@@ -2,9 +2,13 @@ name: ROS 2 CI
 
 on:
   pull_request:
+  workflow_dispatch:
   push:
     branches:
       - main
+
+permissions:
+  contents: read
 
 jobs:
   build:
