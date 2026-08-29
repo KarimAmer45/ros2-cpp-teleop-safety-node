@@ -103,6 +103,18 @@ sudo apt install ros-${ROS_DISTRO}-ros-gz ros-${ROS_DISTRO}-ros-gz-bridge ros-${
 
 The demo starts a tiny differential-drive robot in a simple world and bridges the safe `/cmd_vel` output into the Gazebo model command topic. If those simulator packages are not installed, the core safety node still builds and runs normally.
 
+## Validation
+
+The active [`ROS 2 CI`](.github/workflows/ci.yml) workflow runs for every pull request and every push to `main`. It builds the package on Ubuntu 24.04 against both ROS 2 Jazzy and Rolling through `ros-tooling/action-ros-ci`.
+
+Run the matching package-level checks in a sourced ROS 2 workspace:
+
+```bash
+colcon build --packages-select ros2_cpp_teleop_safety_node
+colcon test --packages-select ros2_cpp_teleop_safety_node
+colcon test-result --verbose
+```
+
 ## Safety Notes
 
 This project is a software guardrail for development and demos. Real robots still need hardware-level emergency stops, controller-level limits, watchdogs, and platform-specific safety validation.
@@ -156,4 +168,3 @@ int main(){
 CPP
 g++ -std=c++17 -O2 -o /tmp/safety_bench /tmp/safety_bench.cpp && /tmp/safety_bench
 ```
-
